@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feed_search">Поиск</string>
+    <string name="feed_category">Категория:</string>
+</resources>
