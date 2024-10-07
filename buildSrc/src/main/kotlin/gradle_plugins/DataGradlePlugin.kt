@@ -40,6 +40,7 @@ class DataGradlePlugin : CoreGradlePlugin() {
         project.dependencies.apply {
             androidxCore()
             retrofit()
+
             coreDomain()
             coreData()
         }

@@ -9,5 +9,4 @@ object GradleNamespaces {
 
     const val FEED_PRESENTATION = "com.manuelklyukvin.feed.presentation"
     const val FEED_DATA = "com.manuelklyukvin.feed.data"
-    const val FEED_DI = "com.manuelklyukvin.feed.di"
 }

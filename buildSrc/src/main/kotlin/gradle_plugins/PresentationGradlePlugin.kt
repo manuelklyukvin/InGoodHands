@@ -3,6 +3,7 @@ package gradle_plugins
 import configs.GradleVersions
 import dependencies.androidx
 import dependencies.hilt
+import modules.coreData
 import modules.coreDomain
 import modules.corePresentation
 import org.gradle.api.Project
@@ -46,8 +47,10 @@ class PresentationGradlePlugin : CoreGradlePlugin() {
         project.dependencies.apply {
             androidx()
             hilt()
+
             corePresentation()
             coreDomain()
+            coreData()
         }
     }
 }

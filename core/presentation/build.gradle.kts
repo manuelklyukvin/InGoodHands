@@ -2,13 +2,18 @@ import configs.GradleNamespaces
 import configs.GradleVersions
 import dependencies.androidx
 import dependencies.coil
+import dependencies.hilt
 import dependencies.navigation
 import dependencies.systemUiController
+import modules.coreData
+import modules.coreDomain
 
 plugins {
     `android-library`
     `kotlin-android`
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin.serialization)
 }
 
@@ -35,7 +40,11 @@ android {
 
 dependencies {
     androidx()
+    hilt()
     navigation()
     coil()
     systemUiController()
+
+    coreDomain()
+    coreData()
 }

@@ -1,22 +1,24 @@
 const express = require('express');
-const databaseConnection = require('./db');
-
-const feedRoutes = require('./routes/feed');
 
 const app = express();
 const port = 3000;
 
+const connection = require('./db');
+
+const feedRoutes = require('./routes/feed');
+
+app.use('/images', express.static('images'));
 app.use('/feed', feedRoutes);
 
 app.listen(port, () => {
     console.log('The server is running on http://localhost:' + port);
 });
 
-app.get('/', (_, response) => {
+app.get('/', (request, response) => {
     response.send('The server is running');
 });
 
-databaseConnection.connect((error) => {
+connection.connect((error) => {
     if (error) {
         console.error('Database connection error:', error);
         return;

@@ -1,6 +1,7 @@
 import configs.GradleNamespaces
 import configs.GradleVersions
 import dependencies.retrofit
+import modules.coreDomain
 
 plugins {
     `android-library`
@@ -27,4 +28,5 @@ android {
 
 dependencies {
     retrofit()
+    coreDomain()
 }

@@ -1,6 +1,7 @@
 import configs.GradleNamespaces
+import dependencies.retrofit
 import gradle_plugins.PresentationGradlePlugin
-import modules.feedDi
+import modules.feedData
 import modules.feedDomain
 
 apply<PresentationGradlePlugin>()
@@ -15,6 +16,7 @@ android {
 }
 
 dependencies {
+    retrofit()
     feedDomain()
-    feedDi()
+    feedData()
 }

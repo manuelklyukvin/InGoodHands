@@ -37,7 +37,7 @@ fun AppNavBar() {
     ) {
         AppNavBarItem(
             icon = painterResource(id = R.drawable.home),
-            label = stringResource(id = R.string.home_nav_button),
+            label = stringResource(id = R.string.home_nav_bar_button),
             route = Screen.Home,
             startRoute = Screen.Feed
         )
@@ -55,8 +55,8 @@ private fun AppNavBarItem(
     val navBackStackEntry by navigationState.navController.currentBackStackEntryAsState()
 
     val currentRoute = navBackStackEntry?.destination?.route
-    val isSelected = navBackStackEntry?.destination?.hierarchy?.any { destination ->
-        destination.route?.contains(route.toString()) == true
+    val isSelected = navBackStackEntry?.destination?.hierarchy?.any {
+        it.route?.contains(route.toString()) == true
     } ?: false
 
     val currentColor = if (isSelected) {

@@ -3,18 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.INTERNET" />
     <application
-        android:name="com.manuelklyukvin.ingoodhands.App"
+        android:name="com.manuelklyukvin.ingoodhands.di.App"
+        android:icon="@mipmap/icon"
         android:label="@string/app_name"
         android:theme="@style/Theme.InGoodHands"
-        android:icon="@mipmap/icon"
-        android:roundIcon="@mipmap/icon_round"
         android:enableOnBackInvokedCallback="true"
         tools:targetApi="tiramisu"
         android:networkSecurityConfig="@xml/network_security_config">
         <activity
-            android:name="com.manuelklyukvin.ingoodhands.AppActivity"
+            android:name="com.manuelklyukvin.ingoodhands.screen.AppActivity"
             android:theme="@style/Theme.InGoodHands.Starting"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

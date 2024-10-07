@@ -2,4 +2,7 @@
 <resources>
     <string name="feed_search">Поиск</string>
     <string name="feed_category">Категория:</string>
+
+    <string name="feed_default_error">Что-то пошло не так</string>
+    <string name="feed_retry_button">Попробовать снова</string>
 </resources>

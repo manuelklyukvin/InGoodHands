@@ -32,6 +32,5 @@ include(
     ":feed",
     ":feed:presentation",
     ":feed:domain",
-    ":feed:data",
-    ":feed:di"
+    ":feed:data"
 )

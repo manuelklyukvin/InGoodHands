@@ -19,8 +19,8 @@ val LocalNavigationState = compositionLocalOf<NavigationState> {
     error("No NavigationState provided")
 }
 
-private val localColors = staticCompositionLocalOf<AppColorScheme> {
-    error("No colors provided")
+private val localColorScheme = staticCompositionLocalOf<AppColorScheme> {
+    error("No color scheme provided")
 }
 
 private val localShapes = staticCompositionLocalOf<AppShapes> {
@@ -109,7 +109,7 @@ fun AppTheme(
 
     CompositionLocalProvider(
         LocalNavigationState provides rememberNavigationState(),
-        localColors provides colorScheme,
+        localColorScheme provides colorScheme,
         localShapes provides shapes,
         localTypography provides typography,
         content = content
@@ -120,7 +120,7 @@ object AppTheme {
 
     val colorScheme: AppColorScheme
         @Composable
-        get() = localColors.current
+        get() = localColorScheme.current
 
     val shapes: AppShapes
         @Composable

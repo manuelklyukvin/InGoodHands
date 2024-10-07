@@ -1,24 +1,22 @@
 const express = require('express');
+
 const router = express.Router();
 
-const executeQuery = require('../utils');
+const executeQuery = require('../utils/execute_query');
 
-router.get('/posts', (_, response) => {
+router.get('/posts', (request, response) => {
+    const postCount = request.query.postCount
     const query = `
-        SELECT post.id, post.title, category.name AS category, address.city 
+        SELECT post.id, post_image.image_url, post.title, category.name AS category, city.name as city
         FROM post 
+        JOIN post_image ON post.id = post_image.post_id
         JOIN category ON post.category_id = category.id
         JOIN address ON post.address_id = address.id
+        JOIN city ON address.city_id = city.id
         ORDER BY post.id DESC 
-        LIMIT 10;
+        LIMIT ${postCount};
     `;
     executeQuery(query, null, response);
-});
-
-router.get('/:id', (request, response) => {
-    const id = request.params.id;
-    const query = 'SELECT * FROM post WHERE id = ?;';
-    executeQuery(query, id, response);
 });
 
 module.exports = router;

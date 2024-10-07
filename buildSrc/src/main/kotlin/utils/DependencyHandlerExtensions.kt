@@ -3,18 +3,10 @@ package utils
 import org.gradle.api.artifacts.Dependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
 
-fun DependencyHandler.implementation(dependency: String) {
-    add("implementation", dependency)
-}
+fun DependencyHandler.implementation(dependency: String) = add("implementation", dependency)
 
-fun DependencyHandler.implementation(dependency: Dependency) {
-    add("implementation", dependency)
-}
+fun DependencyHandler.implementation(dependency: Dependency) = add("implementation", dependency)
 
-fun DependencyHandler.ksp(dependency: String) {
-    add("ksp", dependency)
-}
+fun DependencyHandler.ksp(dependency: String) = add("ksp", dependency)
 
-fun DependencyHandler.testImplementation(dependency: String) {
-    add("testImplementation", dependency)
-}
+fun DependencyHandler.testImplementation(dependency: String) = add("testImplementation", dependency)

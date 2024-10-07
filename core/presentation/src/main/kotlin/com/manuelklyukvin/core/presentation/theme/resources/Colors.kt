@@ -4,7 +4,7 @@ import androidx.compose.ui.graphics.Color
 
 internal object Colors {
 
-    val primaryLight = Color(0xFF458C34)
+    val primaryLight = Color(0xFF49A435)
     val onPrimaryLight = Color(0xFFFFFFFF)
     val secondaryLight = Color(0xFFC0EFB0)
     val onSecondaryLight = Color(0xFF002200)
@@ -15,11 +15,11 @@ internal object Colors {
     val onSurfaceLight = Color(0xFF191D17)
     val outlineLight = Color(0xFF676C63)
 
-    val primaryDark = Color(0xFFA5D395)
+    val primaryDark = Color(0xFF95D37F)
     val onPrimaryDark = Color(0xFF11380B)
     val secondaryDark = Color(0xFF285020)
     val onSecondaryDark = Color(0xFFC0EFB0)
-    val errorDark = Color(0xFF93000A)
+    val errorDark = Color(0xFFD35252)
     val backgroundDark = Color(0xFF11140F)
     val onBackgroundDark = Color(0xFFE1E4DA)
     val surfaceDark = Color(0xFF1D211B)

@@ -28,7 +28,6 @@
             <option value="$PROJECT_DIR$/core/presentation" />
             <option value="$PROJECT_DIR$/feed" />
             <option value="$PROJECT_DIR$/feed/data" />
-            <option value="$PROJECT_DIR$/feed/di" />
             <option value="$PROJECT_DIR$/feed/domain" />
             <option value="$PROJECT_DIR$/feed/presentation" />
           </set>

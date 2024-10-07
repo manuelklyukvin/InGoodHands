@@ -9,4 +9,5 @@ sealed interface FeedEvent {
         val navigationState: NavigationState,
         val postId: Int
     ) : FeedEvent
+    data object OnRetryButtonClicked : FeedEvent
 }

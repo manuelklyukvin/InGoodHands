@@ -5,5 +5,5 @@ import com.manuelklyukvin.feed.domain.post.models.DomainFeedPost
 
 interface FeedPostRepository {
 
-    suspend fun getFeedPosts(): Result<List<DomainFeedPost>, Unit>
+    suspend fun getFeedPosts(): Result<List<DomainFeedPost>, String?>
 }
