@@ -7,5 +7,8 @@ import retrofit2.http.Query
 interface FeedPostApiService {
 
     @GET("feed/posts")
-    suspend fun getFeedPosts(@Query("postCount") postCount: Int): List<DataFeedPost>
+    suspend fun getFeedPosts(
+        @Query("postCount") postCount: Int,
+        @Query("pageNumber") pageNumber: Int
+    ): List<DataFeedPost>
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feed_search">Hledání</string>
+    <string name="feed_category">Kategorie:</string>
+
+    <string name="feed_previous_page_button">Před. stránka</string>
+    <string name="feed_next_page_button">Další stránka</string>
+    <string name="feed_no_more_posts_warning">Ups… Vypadá to, že příspěvky skončily :(</string>
+
+    <string name="feed_default_error">Něco se pokazilo</string>
+    <string name="feed_retry_button">Zkuste to znovu</string>
+</resources>

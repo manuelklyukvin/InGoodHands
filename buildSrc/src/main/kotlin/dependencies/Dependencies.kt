@@ -11,7 +11,6 @@ object Dependencies {
     const val UI_TOOLING = "androidx.compose.ui:ui-tooling"
     const val UI_TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview"
     const val MATERIAL = "androidx.compose.material3:material3"
-    const val JUNIT = "junit:junit:${DependencyVersions.JUNIT}"
 
     const val HILT = "com.google.dagger:hilt-android:${DependencyVersions.HILT}"
     const val HILT_COMPILER = "com.google.dagger:hilt-android-compiler:${DependencyVersions.HILT}"

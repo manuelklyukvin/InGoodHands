@@ -21,7 +21,7 @@ fun AppButton(
     contentColor: Color = AppTheme.colorScheme.onPrimary,
     content: @Composable (() -> Unit)? = null
 ) {
-    val alpha = 0.6f
+    val alpha = 0.7f
     val disabledContainerColor = containerColor.copy(alpha = alpha)
     val disabledContentColor = contentColor.copy(alpha = alpha)
 

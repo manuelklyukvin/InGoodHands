@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="feed_search">Поиск</string>
-    <string name="feed_category">Категория:</string>
+    <string name="feed_search">Search</string>
+    <string name="feed_category">Category:</string>
 
-    <string name="feed_default_error">Что-то пошло не так</string>
-    <string name="feed_retry_button">Попробовать снова</string>
+    <string name="feed_previous_page_button">Prev. page</string>
+    <string name="feed_next_page_button">Next page</string>
+    <string name="feed_no_more_posts_warning">Oops… It looks like there are no more posts :(</string>
+
+    <string name="feed_default_error">Something went wrong</string>
+    <string name="feed_retry_button">Retry</string>
 </resources>

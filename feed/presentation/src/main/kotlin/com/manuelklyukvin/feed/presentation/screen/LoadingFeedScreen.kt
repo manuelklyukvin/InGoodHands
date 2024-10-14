@@ -16,10 +16,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.manuelklyukvin.core.presentation.components.AppCard
 import com.manuelklyukvin.core.presentation.components.LoadingBox
 import com.manuelklyukvin.core.presentation.theme.AppTheme
+import com.manuelklyukvin.feed.presentation.utils.FeedScreenParams
 
 @Composable
 internal fun LoadingFeedScreen() {
@@ -34,7 +34,7 @@ internal fun LoadingFeedScreen() {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(275.dp)
+                    .height(FeedScreenParams.POST_HEIGHT)
             ) {
                 PostCard()
                 Spacer(modifier = Modifier.width(AppTheme.shapes.paddingSmall))
@@ -46,15 +46,11 @@ internal fun LoadingFeedScreen() {
 
 @Composable
 private fun RowScope.PostCard() {
-    AppCard(
-        modifier = Modifier
-            .weight(1f)
-            .height(275.dp)
-    ) {
+    AppCard(modifier = Modifier.weight(1f)) {
         LoadingBox(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(175.dp)
+                .height(FeedScreenParams.IMAGE_HEIGHT)
         )
         Column(modifier = Modifier.padding(AppTheme.shapes.paddingSmall)) {
             LoadingBox(
@@ -67,7 +63,7 @@ private fun RowScope.PostCard() {
             LoadingBox(
                 modifier = Modifier.size(
                     height = AppTheme.shapes.sizeExtraSmall,
-                    width = AppTheme.shapes.sizeExtraLarge * 2
+                    width = AppTheme.shapes.sizeExtraLarge
                 )
             )
             Spacer(modifier = Modifier.weight(1f))

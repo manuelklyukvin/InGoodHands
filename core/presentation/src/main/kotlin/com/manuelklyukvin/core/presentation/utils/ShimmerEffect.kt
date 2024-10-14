@@ -26,7 +26,7 @@ fun Modifier.shimmerEffect() = composed {
     val colorsList = listOf(
         AppTheme.colorScheme.surface,
         AppTheme.colorScheme.background,
-        AppTheme.colorScheme.surface,
+        AppTheme.colorScheme.surface
     )
     val duration = 1000
 

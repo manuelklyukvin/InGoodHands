@@ -2,7 +2,6 @@ package com.manuelklyukvin.feed.presentation.screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.manuelklyukvin.core.domain.post.GetCategoryNameUseCase
 import com.manuelklyukvin.core.domain.result.Result
 import com.manuelklyukvin.core.presentation.navigation.NavigationState
 import com.manuelklyukvin.core.presentation.navigation.Screen
@@ -12,7 +11,6 @@ import com.manuelklyukvin.feed.presentation.screen.models.FeedState
 import com.manuelklyukvin.feed.presentation.screen.models.FeedViewState
 import com.manuelklyukvin.feed.presentation.screen.models.toPresentation
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -21,8 +19,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FeedViewModel @Inject constructor(
-    private val getFeedPostsUseCase: GetFeedPostsUseCase,
-    private val getCategoryNameUseCase: GetCategoryNameUseCase
+    private val getFeedPostsUseCase: GetFeedPostsUseCase
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(FeedState())
@@ -39,6 +36,8 @@ class FeedViewModel @Inject constructor(
             navigationState = event.navigationState,
             postId = event.postId
         )
+        is FeedEvent.OnPreviousPageButtonClicked -> onPreviousPageButtonClicked()
+        is FeedEvent.OnNextPageButtonClicked -> onNextPageButtonClicked()
         is FeedEvent.OnRetryButtonClicked -> onRetryButtonClicked()
     }
 
@@ -46,15 +45,16 @@ class FeedViewModel @Inject constructor(
         _state.value = state.value.copy(viewState = FeedViewState.Loading)
 
         viewModelScope.launch {
-            delay(3000)
-            when (val getFeedPostsResult = getFeedPostsUseCase()) {
+            when (val getFeedPostsResult = getFeedPostsUseCase(state.value.currentPage)) {
                 is Result.Success -> {
-                    val feedPosts = getFeedPostsResult.data.map { feedPost ->
-                        feedPost.toPresentation().copy(category = getCategoryNameUseCase(feedPost.category))
+                    val feedPosts = getFeedPostsResult.data.domainFeedPosts.map { domainFeedPost ->
+                        domainFeedPost.toPresentation()
                     }
                     _state.value = state.value.copy(
                         viewState = FeedViewState.Content,
-                        feedPosts = feedPosts
+                        feedPosts = feedPosts,
+                        isPreviousPageButtonShown = state.value.currentPage > 0,
+                        isNextPageButtonShown = getFeedPostsResult.data.hasNextPage
                     )
                 }
                 is Result.Error -> {
@@ -70,6 +70,16 @@ class FeedViewModel @Inject constructor(
 
     private fun onPostClicked(navigationState: NavigationState, postId: Int) {
         navigationState.navigate(Screen.Post(postId))
+    }
+
+    private fun onPreviousPageButtonClicked() {
+        _state.value = state.value.copy(currentPage = state.value.currentPage - 1)
+        loadFeedPosts()
+    }
+
+    private fun onNextPageButtonClicked() {
+        _state.value = state.value.copy(currentPage = state.value.currentPage + 1)
+        loadFeedPosts()
     }
 
     private fun onRetryButtonClicked() {

@@ -3,7 +3,6 @@ package dependencies
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import utils.implementation
 import utils.ksp
-import utils.testImplementation
 
 fun DependencyHandler.androidxCore() {
     implementation(Dependencies.CORE_KTX)
@@ -19,10 +18,6 @@ fun DependencyHandler.androidx() {
     implementation(Dependencies.UI_TOOLING)
     implementation(Dependencies.UI_TOOLING_PREVIEW)
     implementation(Dependencies.MATERIAL)
-}
-
-fun DependencyHandler.junit() {
-    testImplementation(Dependencies.JUNIT)
 }
 
 fun DependencyHandler.hilt() {

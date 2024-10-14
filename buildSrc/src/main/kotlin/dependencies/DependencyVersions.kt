@@ -6,7 +6,6 @@ object DependencyVersions {
     const val LIFECYCLE_RUNTIME_KTX = "2.8.6"
     const val ACTIVITY_COMPOSE = "1.9.2"
     const val COMPOSE_BOM = "2024.09.02"
-    const val JUNIT = "4.13.2"
 
     const val HILT = "2.52"
     const val HILT_NAVIGATION = "1.2.0"
