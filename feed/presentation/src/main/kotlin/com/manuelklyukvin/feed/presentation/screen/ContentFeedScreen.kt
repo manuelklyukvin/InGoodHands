@@ -17,7 +17,6 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
@@ -127,11 +126,18 @@ private fun LazyGridScope.pageButtons(state: FeedState, onEvent: (FeedEvent) -> 
         GridItemSpan(2)
     }
 
-    item(span = { span }) {
-        when {
-            state.isPreviousPageButtonShown -> PreviousPageButton(onEvent)
-            state.isNextPageButtonShown -> NextPageButton(onEvent)
-            else -> NoMorePostsWarning()
+    if (state.isPreviousPageButtonShown) {
+        item(span = { span }) {
+            PreviousPageButton(onEvent)
+        }
+    }
+    if (state.isNextPageButtonShown) {
+        item(span = { span }) {
+            NextPageButton(onEvent)
+        }
+    } else {
+        item(span = { GridItemSpan(2) }) {
+            NoMorePostsWarning()
         }
     }
 }
@@ -160,18 +166,12 @@ private fun NextPageButton(onEvent: (FeedEvent) -> Unit) {
 
 @Composable
 private fun NoMorePostsWarning() {
-    AppCard(
-        modifier = Modifier.fillMaxWidth(),
-        isDefaultPaddingEnabled = true,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(
-            text = stringResource(R.string.feed_no_more_posts_warning),
-            style = AppTheme.typography.body,
-            textAlign = TextAlign.Center,
-            color = AppTheme.colorScheme.outline
-        )
-    }
+    Text(
+        text = stringResource(R.string.feed_no_more_posts_warning),
+        style = AppTheme.typography.body,
+        textAlign = TextAlign.Center,
+        color = AppTheme.colorScheme.outline
+    )
 }
 
 @Preview
